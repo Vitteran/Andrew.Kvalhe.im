@@ -13,10 +13,9 @@ end
 # Create and configure a toto instance
 #
 toto = Toto::Server.new do
-  #
   # Add your settings here
   # set [:setting], [value]
-  # 
+  #
   # set :author,    ENV['USER']                               # blog author
   # set :title,     Dir.pwd.split('/').last                   # site title
   # set :root,      "index"                                   # page to load on /
@@ -26,10 +25,13 @@ toto = Toto::Server.new do
   # set :summary,   :max => 150, :delim => /~/                # length of article summary and delimiter
   # set :ext,       'txt'                                     # file extension for articles
   # set :cache,      28800                                    # cache duration, in seconds
+  set :author, 'Andrew'
+  set :title, 'kahve'
+  set :date, lambda {|now| now.strftime("%F")}
 
-  set :date, lambda {|now| now.strftime("%B #{now.day.ordinal} %Y") }
+  set :to_html do |path, page, context|
+    ERB.new(File.read("#{path}/#{page}.html.erb")).result(context)
+  end
 end
 
 run toto
-
-
