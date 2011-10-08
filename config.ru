@@ -28,6 +28,7 @@ toto = Toto::Server.new do
   set :author, 'Andrew'
   set :title, 'kahve'
   set :date, lambda {|now| now.strftime("%F")}
+  set :disqus, 'kahve-toto'
 
   set :to_html do |path, page, context|
     ERB.new(File.read("#{path}/#{page}.html.erb")).result(context)
