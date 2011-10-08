@@ -1,5 +1,6 @@
 
 require 'toto'
+require 'haml'
 
 # Rack config
 use Rack::Static, :urls => ['/css', '/js', '/images', '/favicon.ico'], :root => 'public'
@@ -30,8 +31,11 @@ toto = Toto::Server.new do
   set :date, lambda {|now| now.strftime("%F")}
   set :disqus, 'kahve-toto'
   set :ext, 'md'
-  set :to_html do |path, page, context|
-    ERB.new(File.read("#{path}/#{page}.html.erb")).result(context)
+  set :to_html, lambda {|path, page, context|
+    ::Haml::Engine.new(File.read("#{path}/#{page}.haml"), :format => :html5, :ugly => true).render(context)
+  }
+  set :error do |code|
+    ::Haml::Engine.new(File.read("templates/pages/#{code}.haml"), :format => :html5, :ugly => true).render(@context)
   end
 end
 

@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.2.6)
     builder (3.0.0)
+    haml (3.1.3)
     heroku (2.8.6)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
@@ -26,5 +27,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  haml
   heroku
   toto
