@@ -20,17 +20,3 @@
 <section id="archives">
   <%= archives[3..-1] %>
 </section>
-
-<script type="text/javascript">
-  var disqus_shortname = '<%= @config[:disqus] %>'; // required: your forum shortname
-  <% if ENV['RACK_ENV'] == 'development'%>
-    var disqus_developer = 1; // developer mode is on
-  <% end  %>
-
-  (function () {
-    var s = document.createElement('script'); s.async = true;
-    s.type = 'text/javascript';
-    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-</script>
