@@ -1,10 +1,17 @@
-
-require 'toto'
-require 'haml'
+require 'bundler'
+Bundler.require(:default)
 
 # Rack config
-use Rack::Static, :urls => ['/css', '/js', '/images', '/favicon.ico'], :root => 'public'
+use Rack::Static, :urls => ['/js', '/images', '/favicon.ico'], :root => 'public'
 use Rack::CommonLogger
+
+# Sass
+use Sass::Plugin::Rack
+Sass::Plugin.options.merge!(
+  :template_location => 'public/stylesheets',
+  :css_location => 'tmp/stylesheets'
+)
+use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
 
 if ENV['RACK_ENV'] == 'development'
   use Rack::ShowExceptions
@@ -34,9 +41,9 @@ toto = Toto::Server.new do
   set :to_html, lambda {|path, page, context|
     ::Haml::Engine.new(File.read("#{path}/#{page}.haml"), :format => :html5, :ugly => true).render(context)
   }
-  set :error do |code|
-    ::Haml::Engine.new(File.read("templates/pages/#{code}.haml"), :format => :html5, :ugly => true).render(@context)
-  end
+  # set :error do |code|
+  #   ::Haml::Engine.new(File.read("templates/pages/#{code}.haml"), :format => :html5, :ugly => true).render(@context)
+  # end
 end
 
 run toto
