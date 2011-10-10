@@ -7,7 +7,7 @@
         %span.date= article.date
       %section.content= article.summary
       %div.more
-        %a{:href => article.path << '#disqus_thread'} View Comments
+        %a{:href => article.path << '#disqus_thread', 'data-disqus-identifier' => article.path} View Comments
         |
         %a{:href => article.path} read on &raquo;
 %section#archives= archives[3..-1]

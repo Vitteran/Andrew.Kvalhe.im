@@ -7,6 +7,7 @@
     %div#disqus_thread
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';
+      var disqus_identifier = '#{ article.path }';
       #{ ENV['RACK_ENV'] == 'development' ? "var disqus_developer = 1;" : "" }
 
       (function() {
