@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/AndrewKvalheim/toto.git
+  revision: c8622d556b9d262d0005b9cf12b5a10194827c54
+  specs:
+    toto (0.4.9)
+      builder
+      rack
+      rdiscount
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -22,10 +31,6 @@ GEM
     shotgun (0.9)
       rack (>= 1.0)
     term-ansicolor (1.0.6)
-    toto (0.4.9)
-      builder
-      rack
-      rdiscount
 
 PLATFORMS
   ruby
@@ -36,4 +41,4 @@ DEPENDENCIES
   rake
   sass
   shotgun
-  toto
+  toto!

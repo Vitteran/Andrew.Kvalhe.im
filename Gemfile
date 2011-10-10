@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "heroku"
-gem "toto"
+gem "toto", :git => "git://github.com/AndrewKvalheim/toto.git"
 gem "haml"
 gem "sass", :require => "sass/plugin/rack"
 
