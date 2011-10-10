@@ -3,6 +3,8 @@ Bundler.require(:default)
 
 # Rack config
 use Rack::Static, :urls => ['/js', '/images', '/favicon.ico'], :root => 'public'
+use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
+use Rack::Static, :urls => ['/attachments'], :root => 'content/attachments'
 use Rack::CommonLogger
 
 # Sass
@@ -11,7 +13,6 @@ Sass::Plugin.options.merge!(
   :template_location => 'public/stylesheets',
   :css_location => 'tmp/stylesheets'
 )
-use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
 
 if ENV['RACK_ENV'] == 'development'
   use Rack::ShowExceptions
