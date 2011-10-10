@@ -39,6 +39,7 @@ toto = Toto::Server.new do
   set :date, lambda {|now| now.strftime("%F")}
   set :disqus, 'kahve-toto'
   set :ext, 'md'
+  set :articles, 'content/articles'
   set :to_html, lambda {|path, page, context|
     ::Haml::Engine.new(File.read("#{path}/#{page}.haml"), :format => :html5, :ugly => true).render(context)
   }
