@@ -35,7 +35,7 @@ toto = Toto::Server.new do
   # set :ext,       'txt'                                     # file extension for articles
   # set :cache,      28800                                    # cache duration, in seconds
   set :author, 'Andrew'
-  set :title, 'kahve'
+  set :title, 'Andrew.Kvalhe.im'
   set :date, lambda {|now| now.strftime("%F")}
   set :disqus, 'kahve-toto'
   set :ext, 'md'
