@@ -29,7 +29,7 @@ body {
   font-size: 11pt;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 100;
   font-size: 32px;
@@ -54,6 +54,14 @@ p {
   margin-bottom: 0.5em;
 }
 
+.gapped-left {
+  margin: $gap 0 $gap $gap;
+}
+
+.gapped-right {
+  margin: $gap $gap $gap 0;
+}
+
 #header {
   img {
     margin-top: $space;
@@ -67,7 +75,38 @@ p {
   }
 
   .meta {
-    text-align: right;
+    a {
+      float: right;
+      background-color: darken($body, 5%);
+      color: darken($body, 40%);
+      border-radius: 3px;
+      padding: 1px 5px;
+
+      &:hover {
+        background-color: darken($body, 10%);
+        color: darken($body, 60%);
+      }
+    }
+  }
+}
+
+#comments {
+  background-color: lighten($footer, 10%);
+  border-top-left-radius: 5.5pt;
+  border-top-right-radius: 5.5pt;
+  color: lighten($footer, 35%);
+
+  h2 {
+    margin-bottom: 5.5pt;
+    color: lighten($footer, 60%);
+  }
+
+  a {
+    color: lighten($footer, 50%);
+
+    &:hover {
+      color: lighten($footer, 65%);
+    }
   }
 }
 
@@ -100,3 +139,6 @@ p {
   }
 }
 
+#cse-search-form {
+  margin-bottom: 5.5pt;
+}

@@ -1,23 +1,32 @@
+/ 960 Grid System
 %section.grid_10.alpha.omega
   .grid_3.alpha
     %h1
       %a{:href => article.path}= title
   .grid_7.omega
     = body
-    #disqus_thread
-    :javascript
-      var disqus_shortname = '#{ @config[:disqus] }';
-      var disqus_identifier = '#{ article.path }';
-      #{ ENV['RACK_ENV'] == 'development' ? "var disqus_developer = 1;" : "" }
-
-      (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
-    %noscript
-      %p
-        JavaScript is required to view the
-        %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
   .clear
 .clear
+.grid_10.alpha.omega#comments
+  .grid_3.alpha
+    .gapped-left
+      %h2 Comments
+  .grid_7.omega
+    .gapped-right
+      #disqus_thread
+      %noscript.grid_10.prefix_1.suffix_1
+        %p
+          JavaScript is required to view the
+          %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
+  .clear
+.clear
+:javascript
+  var disqus_shortname = '#{ @config[:disqus] }';
+  var disqus_identifier = '#{ article.path }';
+  #{ ENV['RACK_ENV'] == 'development' ? "var disqus_developer = 1;" : "" }
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
