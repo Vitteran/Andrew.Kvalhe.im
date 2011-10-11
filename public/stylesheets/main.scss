@@ -50,8 +50,12 @@ a {
   }
 }
 
-p {
+p, div.highlight {
   margin-bottom: 0.5em;
+}
+
+pre {
+  font-family: 'Ubuntu Mono', sans-serif;
 }
 
 .gapped-left {
@@ -92,12 +96,12 @@ p {
 
 #comments {
   background-color: lighten($footer, 10%);
-  border-top-left-radius: 5.5pt;
-  border-top-right-radius: 5.5pt;
+  border-top-left-radius: (11pt/2);
+  border-top-right-radius: (11pt/2);
   color: lighten($footer, 35%);
 
   h2 {
-    margin-bottom: 5.5pt;
+    margin-bottom: (11pt/2);
     color: lighten($footer, 60%);
   }
 
@@ -120,7 +124,7 @@ p {
   }
 
   h1 {
-    margin-bottom: 5.5pt;
+    margin-bottom: (11pt/2);
     color: lighten($footer, 30%);
   }
 
@@ -140,5 +144,5 @@ p {
 }
 
 #cse-search-form {
-  margin-bottom: 5.5pt;
+  margin-bottom: (11pt/2);
 }

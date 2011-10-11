@@ -14,6 +14,9 @@ Sass::Plugin.options.merge!(
   :css_location => 'tmp/stylesheets'
 )
 
+# Syntax highlighting
+use Rack::Codehighlighter, :pygments_api, :markdown => true, :element => "pre>code", :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => true
+
 if ENV['RACK_ENV'] == 'development'
   use Rack::ShowExceptions
 end
