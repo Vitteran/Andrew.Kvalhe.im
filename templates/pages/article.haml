@@ -1,10 +1,10 @@
-%article
-  %header
-    %h1= title
-    %span.date= date
-  %section.content= body
-  %section.comments
-    %div#disqus_thread
+%section.grid_10.alpha.omega
+  .grid_3.alpha
+    %h1
+      %a{:href => article.path}= title
+  .grid_7.omega
+    = body
+    #disqus_thread
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';
       var disqus_identifier = '#{ article.path }';
@@ -16,8 +16,8 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       })();
     %noscript
-      Please enable JavaScript to view the
-      %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
-    %a.dsq-brlink{:href => "http://disqus.com"}
-      blog comments powered by
-      %span.logo-disqus Disqus
+      %p
+        JavaScript is required to view the
+        %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus.
+  .clear
+.clear
