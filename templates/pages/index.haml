@@ -1,13 +1,14 @@
-%section#articles
-  - for article in articles[0...3]
-    %article.post
-      %header
-        %h1
-          %a{:href => article.path}= article.title
-        %span.date= article.date
-      %section.content= article.summary
-      %div.more
+- for article in articles[0...3]
+  %section.grid_10.alpha.omega
+    .grid_3.alpha
+      %h1
+        %a{:href => article.path}= article.title
+    .grid_7.omega
+      %p= article.body
+      %p= article.date
+      %p
         %a{:href => article.path << '#disqus_thread', 'data-disqus-identifier' => article.path} View Comments
-        |
-        %a{:href => article.path} read on &raquo;
-%section#archives= archives[3..-1]
+    .clear
+  .clear
+.grid_10.alpha.omega= archives[3..-1]
+.clear

@@ -1,15 +1,43 @@
 !!!
 %html
   %head
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/reset.css"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/960_12_col.css"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css"}
     %link{:rel => "alternate", :type => "application/atom+xml", :title => "#{title} - feed", :href => "/index.xml"}
     %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=UTF-8"}
     %title= title
   %body
-    %section= yield
-    %footer
-      powered by
-      %a{:href => "http://cloudhead.io/toto"} toto
+    / 960 Grid System
+    .container_12
+      / Header
+      .grid_6.prefix_3.suffix_3#header
+        %map{:name => "kahve"}
+          %area{:href => "/", :shape => "circle", :coords => [(6*80-20)/2, (6*80-20)/2, (6*80-20)/2].join(",")}
+        %img{:src => "/attachments/kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "kahve"}
+      .clear
+
+      / Content
+      .grid_10.prefix_1.suffix_1#content= yield
+      .clear
+
+      / Footer
+    #footer
+      / 960 Grid System
+      .container_12
+        / Left
+        %section.grid_5.prefix_1
+          %h1 About
+          Powered by
+          %a{:href => "http://cloudhead.io/toto"} toto
+
+        / Right
+        %section.grid_5.suffix_1
+          %h1 Search
+          %h1 Archive
+        .clear
+
+    / Disqus
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';
       #{ ENV['RACK_ENV'] == 'development' ? "var disqus_developer = 1;" : "" }
