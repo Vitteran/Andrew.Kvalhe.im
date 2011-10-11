@@ -48,6 +48,7 @@
               options.enableSearchboxOnly("#{ ENV['RACK_ENV'] == 'development' ? 'http://127.0.0.1:9393/search' : 'http://Andrew.Kvalhe.im/search' }");
               customSearchControl.draw('cse-search-form', options);
             }, true);
+          %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}
           %h1 Archive
         .clear
 

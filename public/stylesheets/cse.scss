@@ -54,9 +54,9 @@ input.gsc-search-button {
 }
 #footer input.gsc-search-button {
   color: #333;
-  background-color: #5B5B5B;
+  background-color: #474747;
   &:hover {
-    background-color: #999;
+    background-color: #888;
   }
 }
 /* Search box */
@@ -69,6 +69,12 @@ input.gsc-input {
 }
 #footer input.gsc-input {
   border: none;
+  opacity: 0.1;
+  &:hover, &:focus {
+    opacity: 1.0;
+  }
+}
+#footer div.gsc-clear-button {
   opacity: 0.2;
   &:hover, &:focus {
     opacity: 1.0;
