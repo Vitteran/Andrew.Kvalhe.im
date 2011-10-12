@@ -51,7 +51,7 @@ a {
 }
 
 p, div.highlight {
-  margin-bottom: 0.5em;
+  margin-bottom: (11pt/2);
 }
 
 pre {
@@ -76,6 +76,17 @@ pre {
 #content {
   section {
     margin-bottom: $space;
+  }
+
+  h1 {
+    text-align: right;
+    margin-top: -(32px/8);
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .meta {
@@ -110,6 +121,16 @@ pre {
 
     &:hover {
       color: lighten($footer, 65%);
+    }
+  }
+}
+
+#archives {
+  ul {
+    list-style-type: none;
+
+    li {
+      margin-bottom: (11pt/2);
     }
   }
 }

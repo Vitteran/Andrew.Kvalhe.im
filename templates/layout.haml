@@ -14,7 +14,7 @@
       .grid_6.prefix_3.suffix_3#header
         %map{:name => "kahve"}
           %area{:href => "/", :shape => "circle", :coords => [(6*80-20)/2, (6*80-20)/2, (6*80-20)/2].join(",")}
-        %img{:src => "/attachments/kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "kahve"}
+        %img{:src => "http://s3-us-west-2.amazonaws.com/andrew.kvalhe.im/assets/kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "kahve"}
       .clear
 
       / Content
@@ -50,7 +50,8 @@
               customSearchControl.draw('cse-search-form', options);
             }, true);
           %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}
-          %h1 Archive
+          %h1 Archives
+          %a{:href => "/archives"} View archives
         .clear
 
         / Bottom text
