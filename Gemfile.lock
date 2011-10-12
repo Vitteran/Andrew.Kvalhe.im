@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/AndrewKvalheim/toto.git
-  revision: f4265a5efb9d8b0485939438740b335f3d6591f6
+  revision: 9520730bcafc63934ddbb3f6d707e728db0ef2a9
   specs:
     toto (0.4.9)
       builder

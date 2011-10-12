@@ -105,6 +105,12 @@ pre {
   }
 }
 
+#pagination {
+  .omega {
+    text-align: right;
+  }
+}
+
 #comments {
   background-color: lighten($footer, 10%);
   border-top-left-radius: (11pt/2);
