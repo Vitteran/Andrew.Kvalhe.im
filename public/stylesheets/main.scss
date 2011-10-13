@@ -13,11 +13,12 @@ $body: #fff;
 $footer: #333;
 
 // Google Web Fonts configuration:
-//   http://www.google.com/webfonts#UsePlace:use/Collection:Ubuntu+Mono|Lato:100|Ubuntu:300
+//   http://www.google.com/webfonts#UsePlace:use/Collection:Ubuntu+Mono|Lato:100|Ubuntu:300,500
 // Usage:
 //   font-family: 'Ubuntu Mono', sans-serif;
 //   font-family: 'Lato', sans-serif; font-weight: 100;
 //   font-family: 'Ubuntu', sans-serif; font-weight: 300;
+//   // strong                          font-weight: 500;
 
 // Main
 
@@ -27,6 +28,17 @@ body {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 11pt;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.instruction {
+  font-weight: 500;
+  background-color: darken($body, 5%);
+  padding: 0 3pt 1pt 3pt;
+  border-radius: 3px;
 }
 
 h1, h2 {
@@ -51,10 +63,17 @@ h2 {
 
 a {
   text-decoration: none;
-  color: darken($body, 80%);
+  color: darken($body, 70%);
+}
 
-  &:hover {
-    color: darken($body, 100%);
+p {
+  a {
+    border-radius: 3px;
+
+    &:hover {
+      color: white;
+      background-color: #f92672;
+    }
   }
 }
 
@@ -66,8 +85,13 @@ h5,
 h6,
 p,
 div.highlight,
-blockquote {
+blockquote,
+iframe {
   margin-bottom: 1em;
+}
+
+iframe {
+  border-radius: 5px;
 }
 
 pre, code {

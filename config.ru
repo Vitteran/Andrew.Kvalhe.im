@@ -6,7 +6,8 @@ use Rack::Static, :urls => ['/js', '/images', '/favicon.ico'], :root => 'public'
 use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
 use Rack::CommonLogger
 use Rack::Rewrite do
-  r302 %r{^/([^/]*\.[^/]*$)}, 'http://s3-us-west-2.amazonaws.com/andrew.kvalhe.im/assets/$1'
+  r302 %r{^/([^/]*\.[^/]*[^!])$}, 'http://s3-us-west-2.amazonaws.com/andrew.kvalhe.im/assets/$1'
+  r302 %r{^/([^/]*\.[^/]*)!$}, 'http://s3-us-west-2.amazonaws.com/andrew.kvalhe.im/assets/scaled/$1'
 end
 
 # Sass
