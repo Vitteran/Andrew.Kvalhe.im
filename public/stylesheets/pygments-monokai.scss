@@ -4,7 +4,7 @@
 
 // Color names
 $black: #272822;
-$gray: #75715e;
+$medgray: #75715e;
 $white: #f8f8f2;
 $magenta: #960050;
 $darkmagenta: #1e0010;
@@ -34,22 +34,22 @@ div.highlight::-webkit-scrollbar-track:enabled {
 }
 
 div.highlight::-webkit-scrollbar-thumb:horizontal {
-  background-color: $gray;
+  background-color: $medgray;
   -webkit-border-radius: 5px;
 }
 
 .hll { background-color: $black }
-.c { color: $gray } /* Comment */
+.c { color: $medgray } /* Comment */
 .err { color: $magenta; background-color: $darkmagenta } /* Error */
 .k { color: $pink } /* Keyword */
 .l { color: $purple } /* Literal */
 .n { color: $white } /* Name */
 .o { color: $pink } /* Operator */
 .p { color: $white } /* Punctuation */
-.cm { color: $gray } /* Comment.Multiline */
-.cp { color: $gray } /* Comment.Preproc */
-.c1 { color: $gray } /* Comment.Single */
-.cs { color: $gray } /* Comment.Special */
+.cm { color: $medgray } /* Comment.Multiline */
+.cp { color: $medgray } /* Comment.Preproc */
+.c1 { color: $medgray } /* Comment.Single */
+.cs { color: $medgray } /* Comment.Special */
 .ge { font-style: italic } /* Generic.Emph */
 .gs { font-weight: bold } /* Generic.Strong */
 .kc { color: $blue } /* Keyword.Constant */

@@ -65,7 +65,8 @@ h4,
 h5,
 h6,
 p,
-div.highlight {
+div.highlight,
+blockquote {
   margin-bottom: 1em;
 }
 
@@ -80,10 +81,10 @@ code {
 }
 
 blockquote {
-  margin-left: (11pt/2);
-  padding-left: (11pt/2);
-  border-left: 1px solid darken($body, 10%);
-  background-color: darken($body, 2%);
+  padding: 1em;
+  border-radius: 5px;
+  background-color: #272822;
+  color: #75715e;
 }
 
 .gapped-left {
