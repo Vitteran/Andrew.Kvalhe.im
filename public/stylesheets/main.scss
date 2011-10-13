@@ -23,7 +23,7 @@ $footer: #333;
 
 body {
   background-color: $body;
-  color: darken($body, 50%);
+  color: darken($body, 40%);
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 11pt;
@@ -32,30 +32,58 @@ body {
 h1, h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 100;
+}
+
+h1 {
   font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
 }
 
 h1,
 h1 a,
-h1 a:hover {
+h1 a:hover,
+h2 {
   color: darken($body, 100%);
 }
 
 a {
   text-decoration: none;
-  color: darken($body, 70%);
+  color: darken($body, 80%);
 
   &:hover {
-    color: darken($body, 90%);
+    color: darken($body, 100%);
   }
 }
 
-p, div.highlight {
-  margin-bottom: (11pt/2);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div.highlight {
+  margin-bottom: 1em;
 }
 
-pre {
+pre, code {
   font-family: 'Ubuntu Mono', sans-serif;
+}
+
+code {
+  background-color: darken($body, 5%);
+  padding: 0 3pt 1pt 3pt;
+  border-radius: 3px;
+}
+
+blockquote {
+  margin-left: (11pt/2);
+  padding-left: (11pt/2);
+  border-left: 1px solid darken($body, 10%);
+  background-color: darken($body, 2%);
 }
 
 .gapped-left {
@@ -118,7 +146,6 @@ pre {
   color: lighten($footer, 35%);
 
   h2 {
-    margin-bottom: (11pt/2);
     color: lighten($footer, 60%);
   }
 

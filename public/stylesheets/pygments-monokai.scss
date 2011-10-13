@@ -18,10 +18,24 @@ $orange: #fd971f;
 div.highlight {
   background-color: $black;
   overflow-x: auto;
+  border-radius: 5px;
   pre {
-    padding: (11pt/4) (11pt/2);
-    border-left: (11pt/2) solid $gray;
+    padding: 1em;
   }
+}
+
+div.highlight::-webkit-scrollbar {
+  height: 10px;
+}
+
+div.highlight::-webkit-scrollbar-track:enabled {
+  background-color: transparent;
+  -webkit-border-radius: 5px;
+}
+
+div.highlight::-webkit-scrollbar-thumb:horizontal {
+  background-color: $gray;
+  -webkit-border-radius: 5px;
 }
 
 .hll { background-color: $black }
