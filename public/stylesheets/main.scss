@@ -66,17 +66,6 @@ a {
   color: darken($body, 70%);
 }
 
-p {
-  a {
-    border-radius: 3px;
-
-    &:hover {
-      color: white;
-      background-color: #f92672;
-    }
-  }
-}
-
 h1,
 h2,
 h3,
@@ -108,7 +97,6 @@ blockquote {
   padding: 1em;
   border-radius: 5px;
   background-color: #272822;
-  color: #75715e;
 }
 
 .gapped-left {
@@ -140,6 +128,17 @@ blockquote {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  p {
+    a {
+      border-radius: 3px;
+
+      &:hover {
+        color: white;
+        background-color: #f92672;
+      }
+    }
   }
 
   .meta {

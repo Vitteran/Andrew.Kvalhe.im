@@ -10,11 +10,11 @@
     .clear
   .clear
 %section.grid_10.alpha.omega#pagination
-  .grid_5.alpha
+  %p.grid_5.alpha
     - unless next_page_number.nil?
       %a{:href => "/page/#{ next_page_number }"} &#x2190; Older
     &nbsp;
-  .grid_5.omega
+  %p.grid_5.omega
     &nbsp;
     - unless prev_page_number.nil?
       %a{:href => "/page/#{ prev_page_number }"} Newer &#x2192;
