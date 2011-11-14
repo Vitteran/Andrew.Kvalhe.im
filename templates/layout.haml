@@ -8,6 +8,8 @@
     %link{:rel => "alternate", :type => "application/atom+xml", :title => "#{title} - feed", :href => "/index.xml"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "http://fonts.googleapis.com/css?family=Ubuntu+Mono|Lato:100|Ubuntu:300,500"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/pygments-monokai.css"}
+    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"}
+    %script{:type => "text/javascript", :src => "js/layout.js"}
   %body
     / 960 Grid System
     .container_12
@@ -57,11 +59,27 @@
 
         / Bottom text
         %footer.grid_10.prefix_1.suffix_1
-          %p
-            Powered by
-            %a{:href => "http://cloudhead.io/toto"} toto
-            +
-            %a{:href => "http://www.heroku.com/"} heroku
+          #poweredby
+            Powered by&nbsp;
+            %ul
+              %li
+                %a{:href => "http://cloudhead.io/toto"} toto
+              %li
+                %a{:href => "http://www.heroku.com/"} heroku
+              %li
+                %a{:href => "http://aws.amazon.com/s3/"} s3
+              %li
+                %a{:href => "http://git-scm.com/"} git
+              %li
+                %a{:href => "http://rack.rubyforge.org/"} rack
+              %li
+                %a{:href => "http://www.ruby-lang.org/"} ruby
+              %li
+                %a{:href => "http://sass-lang.com/"} sass
+              %li
+                %a{:href => "http://haml-lang.com/"} haml
+              %li
+                %a{:href => "http://daringfireball.net/projects/markdown/"} markdown
     / Disqus
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';

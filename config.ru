@@ -24,6 +24,23 @@ if ENV['RACK_ENV'] == 'development'
   use Rack::ShowExceptions
 end
 
+# Custom kramdown extensions
+class Kramdown::Parser::CustomExtensions < Kramdown::Parser::Kramdown
+   def initialize(source, options)
+     super
+     @span_parsers.unshift(:instruction)
+   end
+
+  def parse_instruction
+    @src.pos += @src.matched_size
+
+    el = Element.new()
+    stop_re =
+    found = parse_spans(el, stop_re)
+  end
+  define_parser(:instruction, /\[[^\]]*>[^\[]*\]/, '\[')
+end
+
 #
 # Create and configure a toto instance
 #
@@ -50,6 +67,7 @@ toto = Toto::Server.new do
   else
     set :articles, 'content/articles'
   end
+  set :markdown,  {:input => 'CustomExtensions'}
   set :to_html, lambda {|path, page, context|
     ::Haml::Engine.new(File.read("#{path}/#{page}.haml"), :format => :html5, :ugly => true).render(context)
   }
