@@ -54,7 +54,11 @@
             }, true);
           %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}
           %h1 Archives
-          %a{:href => "/archives"} View archives
+          - 2011.downto(2008).each do |year|
+            = succeed "," do
+              %a{:href => "/#{year}"}= year
+          or
+          %a{:href => "/archives"} all posts
         .clear
 
         / Bottom text
