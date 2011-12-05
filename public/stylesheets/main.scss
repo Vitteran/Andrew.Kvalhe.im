@@ -132,13 +132,18 @@ blockquote {
 
   p {
     a {
-      border-radius: 3px;
-
       &:hover {
-        color: white;
-        background-color: #f92672;
+        color: darken($body, 100%);
       }
     }
+  }
+
+  ul, ol {
+    margin-bottom: (11pt/2);
+  }
+
+  li {
+    margin-left: 2em;
   }
 
   .meta {
@@ -168,6 +173,7 @@ blockquote {
   border-top-left-radius: (11pt/2);
   border-top-right-radius: (11pt/2);
   color: lighten($footer, 35%);
+  box-shadow: 0 0 12pt rgba(0,0,0,0.25);
 
   h2 {
     color: lighten($footer, 60%);
@@ -196,6 +202,9 @@ blockquote {
   padding-top: $gap;
   background-color: $footer;
   color: lighten($footer, 15%);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 36pt rgba(0,0,0,0.50);
 
   section {
     margin-bottom: $gap;

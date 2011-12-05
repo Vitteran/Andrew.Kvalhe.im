@@ -71,6 +71,7 @@ toto = Toto::Server.new do
   set :to_html, lambda {|path, page, context|
     ::Haml::Engine.new(File.read("#{path}/#{page}.haml"), :format => :html5, :ugly => true).render(context)
   }
+  set :articles_per_page,    6                                # number of articles per page
   # set :error do |code|
   #   ::Haml::Engine.new(File.read("templates/pages/#{code}.haml"), :format => :html5, :ugly => true).render(@context)
   # end
