@@ -22,9 +22,12 @@ $footer: #333;
 
 // Main
 
-body, td, th {
+body {
   background-color: $body;
   color: darken($body, 50%);
+}
+
+body, td, th {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 11pt;
@@ -120,19 +123,6 @@ blockquote {
   }
 }
 
-table {
-  border-collapse: collapse;
-}
-
-td, th {
-  border: 1px solid darken($body, 15%);
-  padding: 3px;
-}
-
-th {
-  background-color: darken($body, 5%);
-}
-
 kbd {
   padding: 0 3pt 1pt 3pt;
   border-radius: 3px;
@@ -181,6 +171,19 @@ kbd {
 
   li {
     margin-left: 2em;
+  }
+
+  table {
+    border-collapse: collapse;
+  }
+
+  td, th {
+    border: 1px solid darken($body, 15%);
+    padding: 3px;
+  }
+
+  th {
+    background-color: darken($body, 5%);
   }
 
   .meta {
