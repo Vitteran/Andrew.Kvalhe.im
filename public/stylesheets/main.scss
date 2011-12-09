@@ -13,18 +13,18 @@ $body: #fff;
 $footer: #333;
 
 // Google Web Fonts configuration:
-//   http://www.google.com/webfonts#UsePlace:use/Collection:Ubuntu+Mono|Lato:100|Ubuntu:300,500
+//   http://www.google.com/webfonts#UsePlace:use/Collection:Ubuntu+Mono|Ubuntu:300,500|Terminal+Dosis:200
 // Usage:
 //   font-family: 'Ubuntu Mono', sans-serif;
-//   font-family: 'Lato', sans-serif; font-weight: 100;
+//   font-family: 'Terminal Dosis', sans-serif; font-weight: 200;
 //   font-family: 'Ubuntu', sans-serif; font-weight: 300;
 //   // strong                          font-weight: 500;
 
 // Main
 
-body {
+body, td, th {
   background-color: $body;
-  color: darken($body, 40%);
+  color: darken($body, 50%);
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 11pt;
@@ -41,9 +41,9 @@ strong {
   border-radius: 3px;
 }
 
-h1, h2 {
-  font-family: 'Lato', sans-serif;
-  font-weight: 100;
+h1, h2, h3, h4 {
+  font-family: 'Terminal Dosis', sans-serif;
+  font-weight: 200;
 }
 
 h1 {
@@ -54,11 +54,17 @@ h2 {
   font-size: 24px;
 }
 
+h3 {
+  font-size: 18px;
+}
+
 h1,
 h1 a,
 h1 a:hover,
-h2 {
-  color: darken($body, 100%);
+h2,
+h3,
+h4 {
+  color: darken($body, 50%);
 }
 
 a {
@@ -75,12 +81,19 @@ h6,
 p,
 div.highlight,
 blockquote,
-iframe {
+iframe,
+table {
   margin-bottom: 1em;
 }
 
 iframe {
   border-radius: 5px;
+}
+
+a {
+  &:hover {
+    color: darken($body, 100%);
+  }
 }
 
 pre, code {
@@ -97,6 +110,38 @@ blockquote {
   padding: 1em;
   border-radius: 5px;
   background-color: #272822;
+
+  a {
+    color: darken($body, 15%);
+
+    &:hover {
+      color: darken($body, 0%);
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid darken($body, 15%);
+  padding: 3px;
+}
+
+th {
+  background-color: darken($body, 5%);
+}
+
+kbd {
+  padding: 0 3pt 1pt 3pt;
+  border-radius: 3px;
+  white-space: nowrap;
+  background-color: #EEE;
+  border-top: solid 2px #CCC;
+  border-right: solid 4px #AAA;
+  border-bottom: solid 5px #888;
+  border-left: solid 3px #BBB;
 }
 
 .gapped-left {
@@ -128,14 +173,6 @@ blockquote {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  p {
-    a {
-      &:hover {
-        color: darken($body, 100%);
-      }
-    }
   }
 
   ul, ol {
