@@ -1,3 +1,11 @@
+def absolute_paths html
+  doc = Nokogiri::HTML(html)
+  doc.xpath('//@href|//@src').each do |url|
+    url.value = @config[:url] + url.value.sub(/^\//, '') if url.value =~ /^(?!\w+:\/\/).*/
+  end
+  doc.at('body').inner_html
+end
+
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title @config[:title]
@@ -13,9 +21,8 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
       xml.published article[:date].iso8601
       xml.updated article[:date].iso8601
       xml.author { xml.name @config[:author] }
-      xml.summary article.summary, "type" => "html"
-      xml.content article.body, "type" => "html"
+      # xml.summary article.summary, "type" => "html"
+      xml.content absolute_paths(article.body), "type" => "html"
     end
   end
 end
-

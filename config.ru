@@ -60,6 +60,7 @@ toto = Toto::Server.new do
   # set :cache,      28800                                    # cache duration, in seconds
   set :author, 'Andrew'
   set :title, 'Andrew.Kvalhe.im'
+  set :url, 'http://Andrew.Kvalhe.im/'
   set :date, lambda {|now| now.strftime("%F")}
   set :disqus, 'kahve-toto'
   set :ext, 'md'
