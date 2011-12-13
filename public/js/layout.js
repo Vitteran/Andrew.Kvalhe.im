@@ -4,11 +4,6 @@ $(document).ready(function() {
 	length = $('div#poweredby ul li').length;
 	counter = 1;
 
-	all = $('div#poweredby ul li');
-	all.css('top', '1.2em');
-	all.css('opacity', '0.0');
-	all.css('visibility', 'hidden');
-
 	first = $('div#poweredby ul li:first');
 	first.css('top', '0em');
 	first.css('opacity', '1.0');

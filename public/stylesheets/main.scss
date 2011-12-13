@@ -280,6 +280,10 @@ kbd {
 
     li {
       position: absolute;
+      top: 1.2em;
+      left: 0;
+      opacity: 0.0;
+      visibility: hidden;
     }
   }
 }
