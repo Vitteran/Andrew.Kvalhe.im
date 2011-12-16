@@ -18,7 +18,7 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
-    kramdown (0.13.3)
+    kramdown (0.13.4)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mime-types (1.17.2)
