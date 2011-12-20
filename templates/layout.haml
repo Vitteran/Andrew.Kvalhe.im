@@ -51,7 +51,8 @@
               customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
               var options = new google.search.DrawOptions();
               options.setAutoComplete(true);
-              options.enableSearchboxOnly("#{ ENV['RACK_ENV'] == 'development' ? 'http://127.0.0.1:9393/search' : 'http://Andrew.Kvalhe.im/search' }");
+              customSearchControl.setAutoCompletionId('013034493565108203547:e4_btv2qeii+qptype:3');
+              options.enableSearchboxOnly("http://");
               customSearchControl.draw('cse-search-form', options);
             }, true);
           %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}

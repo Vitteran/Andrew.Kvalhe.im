@@ -14,12 +14,31 @@
     return '';
   }
 
-  google.load('search', '1', {language : 'en'}, {"nocss" : true});
+  var _gaq = _gaq || [];
+  _gaq.push(["_setAccount", "UA-6595042-6"]);
+  function _trackQuery(control, searcher, query) {
+    var loc = document.location;
+    var url = [
+      loc.pathname,
+      loc.search,
+      loc.search ? '&' : '?',
+      encodeURIComponent('q'),
+      '=',
+      encodeURIComponent(query)
+    ];
+    _gaq.push(["_trackPageview", url.join('')]);
+  }
+
+  google.load('search', '1', {language : 'en'});
   google.setOnLoadCallback(function() {
-    var customSearchControl = new google.search.CustomSearchControl('013034493565108203547:e4_btv2qeii');
+    var customSearchControl = new google.search.CustomSearchControl(
+      '013034493565108203547:e4_btv2qeii');
+
     customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    customSearchControl.setSearchStartingCallback(null, _trackQuery);
     var options = new google.search.DrawOptions();
     options.setAutoComplete(true);
+    customSearchControl.setAutoCompletionId('013034493565108203547:e4_btv2qeii+qptype:3');
     customSearchControl.draw('cse', options);
     var queryFromUrl = parseQueryFromUrl();
     if (queryFromUrl) {
