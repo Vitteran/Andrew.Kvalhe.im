@@ -10,7 +10,7 @@ xml.urlset("xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9") do
     ["/2008",     "yearly"],
   ].each do |path, changefreq|
     xml.url do
-      xml.loc [@config[:url], path].join('/').squeeze('/')
+      xml.loc "http://#{[@config[:url].sub("http://", ''), path].join('/').squeeze('/')}"
       xml.changefreq changefreq
     end
   end
