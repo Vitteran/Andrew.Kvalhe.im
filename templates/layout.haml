@@ -68,7 +68,7 @@
             }, true);
           %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}
           %h1 Archives
-          - 2011.downto(2008).each do |year|
+          - 2012.downto(2008).each do |year|
             = succeed "," do
               %a{:href => "/#{year}"}= year
           or
