@@ -64,7 +64,7 @@ toto = Toto::Server.new do
   set :disqus, 'andrewkvalheim'
   set :ext, 'md'
   if ENV['RACK_ENV'] == 'development'
-    set :articles, 'tmp/articles'
+    set :articles, '../content/articles'
   else
     set :articles, 'content/articles'
   end

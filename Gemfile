@@ -7,9 +7,9 @@ gem "rack-codehighlighter", :require => "rack/codehighlighter"
 gem "rack-rewrite", :require => "rack/rewrite"
 
 if ENV['RACK_ENV'] == "development"
-  gem "toto", :path => "../toto"
+  gem "toto", :path => "../engine"
 else
-	gem "toto", :git => "git://github.com/AndrewKvalheim/toto.git"
+  gem "toto", :git => "git://github.com/AndrewKvalheim/toto.git"
 end
 
 group :development do
