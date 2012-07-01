@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "thin"
 gem "heroku"
 gem "haml"
 gem "sass", :require => "sass/plugin/rack"
