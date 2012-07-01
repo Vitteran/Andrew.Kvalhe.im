@@ -22,15 +22,16 @@ $footer: #333;
 
 // Main
 
-body {
-  background-color: $body;
-  color: darken($body, 50%);
-}
-
-body, td, th {
+@mixin typography {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
   font-size: 11pt;
+}
+
+body {
+  @include typography;
+  background-color: $body;
+  color: darken($body, 50%);
 }
 
 strong {
@@ -49,24 +50,14 @@ h1, h2, h3, h4 {
   font-weight: 200;
 }
 
-h1 {
-  font-size: 32px;
-}
+h1 {font-size: 32px;}
+h2 {font-size: 24px;}
+h3 {font-size: 18px;}
 
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-h1,
-h1 a,
-h1 a:hover,
-h2,
-h3,
-h4 {
+h1, h1 a, h1 a:hover,
+h2, h2 a, h2 a:hover,
+h3, h3 a, h3 a:hover,
+h4, h4 a, h4 a:hover, {
   color: darken($body, 50%);
 }
 
@@ -150,40 +141,44 @@ kbd {
 }
 
 #content {
-  section {
-    margin-bottom: $space;
-  }
+  .article {
+    section {
+      margin-bottom: $space;
+    }
 
-  h1 {
-    text-align: right;
-    margin-top: -(32px/8);
-  }
+    h1 {
+      text-align: right;
+      margin-top: -(32px/8);
+    }
 
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  ul, ol {
-    margin-bottom: (11pt/2);
-  }
+    ul, ol {
+      margin-bottom: (11pt/2);
+    }
 
-  li {
-    margin-left: 2em;
-  }
+    li {
+      margin-left: 2em;
+    }
 
-  table {
-    border-collapse: collapse;
-  }
+    table {
+      border-collapse: collapse;
+    }
 
-  td, th {
-    border: 1px solid darken($body, 15%);
-    padding: 3px;
-  }
+    td, th {
+      @include typography;
+      border: 1px solid darken($body, 15%);
+      padding: 3px;
+    }
 
-  th {
-    background-color: darken($body, 5%);
+    th {
+      background-color: darken($body, 5%);
+    }
+
   }
 
   .meta {
@@ -238,7 +233,7 @@ kbd {
   }
 }
 
-#footer {
+footer {
   padding-top: $gap;
   background-color: $footer;
   color: lighten($footer, 15%);
@@ -255,12 +250,6 @@ kbd {
     color: lighten($footer, 30%);
   }
 
-  footer {
-    font-size: smaller;
-    text-align: right;
-    margin-bottom: $gap;
-  }
-
   a {
     color: lighten($footer, 30%);
 
@@ -271,6 +260,10 @@ kbd {
 }
 
 #poweredby {
+  font-size: smaller;
+  text-align: right;
+  margin-bottom: $gap;
+
   ul {
     list-style-type: none;
     position: relative;
@@ -288,6 +281,3 @@ kbd {
   }
 }
 
-#cse-search-form {
-  margin-bottom: (11pt/2);
-}

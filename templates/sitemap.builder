@@ -5,7 +5,7 @@ xml.urlset("xmlns" => "http://www.sitemaps.org/schemas/sitemap/0.9") do
     ["/",         "weekly"],
     ["/archives", "weekly"],
     ["/2012",     "weekly"],
-    ["/2011",     "weekly"],
+    ["/2011",     "yearly"],
     ["/2010",     "yearly"],
     ["/2009",     "yearly"],
     ["/2008",     "yearly"],

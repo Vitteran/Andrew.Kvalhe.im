@@ -15,7 +15,7 @@
     / Google Analytics
     :javascript
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-6595042-6']);
+      _gaq.push(['_setAccount', 'UA-31751058-2']);
       _gaq.push(['_trackPageview']);
 
       (function() {
@@ -38,7 +38,7 @@
       .clear
 
     / Footer
-    #footer
+    %footer
       / 960 Grid System
       .container_12
         / Left
@@ -54,19 +54,19 @@
         %section.grid_5.suffix_1
           %h1 Search
           #cse-search-form{:style => "width: 100%;"} Loading
-          %script{:src => "//www.google.com/jsapi", :type => "text/javascript"}
+          %script{:src => "http://www.google.com/jsapi", :type => "text/javascript"}
           :javascript
-            google.load('search', '1', {language : 'en'});
+            google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});
             google.setOnLoadCallback(function() {
-              var customSearchControl = new google.search.CustomSearchControl('013034493565108203547:e4_btv2qeii');
+              var customSearchOptions = {};
+              var customSearchControl = new google.search.CustomSearchControl('005585112175679639680:8umh3oxgkvo', customSearchOptions);
               customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
               var options = new google.search.DrawOptions();
               options.setAutoComplete(true);
-              customSearchControl.setAutoCompletionId('013034493565108203547:e4_btv2qeii+qptype:3');
-              options.enableSearchboxOnly("http://");
+              customSearchControl.setAutoCompletionId('005585112175679639680:8umh3oxgkvo+qptype:3');
+              options.enableSearchboxOnly("http://Andrew.Kvalhe.im/search.html");
               customSearchControl.draw('cse-search-form', options);
             }, true);
-          %link{:rel => "stylesheet", :href => "/stylesheets/cse.css", :type => "text/css"}
           %h1 Archives
           - 2012.downto(2008).each do |year|
             = succeed "," do
@@ -76,30 +76,29 @@
         .clear
 
         / Bottom text
-        %footer.grid_10.prefix_1.suffix_1
-          #poweredby
-            Powered by&nbsp;
-            %ul
-              %li
-                %a{:href => "http://cloudhead.io/toto"} toto
-              %li
-                %a{:href => "http://www.heroku.com/"} heroku
-              %li
-                %a{:href => "http://aws.amazon.com/s3/"} s3
-              %li
-                %a{:href => "http://git-scm.com/"} git
-              %li
-                %a{:href => "http://rack.rubyforge.org/"} rack
-              %li
-                %a{:href => "http://www.ruby-lang.org/"} ruby
-              %li
-                %a{:href => "http://sass-lang.com/"} sass
-              %li
-                %a{:href => "http://haml-lang.com/"} haml
-              %li
-                %a{:href => "http://daringfireball.net/projects/markdown/"} markdown
-              %li
-                %a{:href => "http://pygments.org/"} pygments
+        #poweredby.grid_10.prefix_1.suffix_1
+          Powered by&nbsp;
+          %ul
+            %li
+              %a{:href => "http://cloudhead.io/toto"} toto
+            %li
+              %a{:href => "http://www.heroku.com/"} heroku
+            %li
+              %a{:href => "http://aws.amazon.com/s3/"} s3
+            %li
+              %a{:href => "http://git-scm.com/"} git
+            %li
+              %a{:href => "http://rack.rubyforge.org/"} rack
+            %li
+              %a{:href => "http://www.ruby-lang.org/"} ruby
+            %li
+              %a{:href => "http://sass-lang.com/"} sass
+            %li
+              %a{:href => "http://haml-lang.com/"} haml
+            %li
+              %a{:href => "http://daringfireball.net/projects/markdown/"} markdown
+            %li
+              %a{:href => "http://pygments.org/"} pygments
     / Disqus
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';
