@@ -141,7 +141,6 @@ kbd {
 }
 
 #content {
-  .article {
     section {
       margin-bottom: $space;
     }
@@ -150,6 +149,8 @@ kbd {
       text-align: right;
       margin-top: -(32px/8);
     }
+
+    .article {
 
     img {
       display: block;
