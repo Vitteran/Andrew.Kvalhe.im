@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/AndrewKvalheim/toto.git
-  revision: 8389942e5a97e12132623f8f3c016e926016a8ce
+PATH
+  remote: ../engine
   specs:
     toto (0.4.9)
       builder
@@ -11,7 +10,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     addressable (2.2.6)
-    builder (3.0.0)
+    builder (3.1.3)
     daemons (1.1.8)
     eventmachine (0.12.10)
     haml (3.1.4)
@@ -20,7 +19,7 @@ GEM
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
-    kramdown (0.13.7)
+    kramdown (0.14.0)
     launchy (2.0.5)
       addressable (~> 2.2.6)
     mime-types (1.17.2)

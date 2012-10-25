@@ -4,13 +4,14 @@
     %title
       = title
       = " - #{@config[:title]}" unless title.include? @config[:title]
-    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=UTF-8"}
-    %base{:href => "/"}
-    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/main.css"}
-    %link{:rel => "alternate", :type => "application/rss+xml", :title => "#{title}", :href => "http://feeds.feedburner.com/AndrewKvalheim"}
+    %meta{'charset' => "utf-8"}
+    %meta{'http-equiv' => "X-UA-Compatible", :content => "IE=9"}
+    %base{:href => "http://Andrew.Kvalhe.im/"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/main.css"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,500|Terminal+Dosis:200"}
-    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/pygments-monokai.css"}
-    %script{:type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"}
+    %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/pygments-monokai.css"}
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => "#{title}", :href => "http://feeds.feedburner.com/AndrewKvalheim"}
+    %script{:type => "text/javascript", :src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"}
     %script{:type => "text/javascript", :src => "js/layout.js"}
     / Google Analytics
     :javascript
@@ -27,7 +28,7 @@
     / 960 Grid System
     .container_12
       / Header
-      .grid_6.prefix_3.suffix_3#header
+      %header.grid_6.prefix_3.suffix_3.nocontent
         %map{:name => "kahve"}
           %area{:href => "/", :shape => "circle", :coords => [(6*80-20)/2, (6*80-20)/2, (6*80-20)/2].join(",")}
         %img{:src => "/:kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "#kahve"}
@@ -38,7 +39,7 @@
       .clear
 
     / Footer
-    %footer
+    %footer.nocontent
       / 960 Grid System
       .container_12
         / Left
@@ -82,23 +83,26 @@
             %li
               %a{:href => "http://cloudhead.io/toto"} toto
             %li
-              %a{:href => "http://www.heroku.com/"} heroku
+              %a{:href => "http://www.heroku.com/"} Heroku
             %li
-              %a{:href => "http://aws.amazon.com/s3/"} s3
+              %a{:href => "http://aws.amazon.com/s3/"} S3
             %li
-              %a{:href => "http://git-scm.com/"} git
+              %a{:href => "http://git-scm.com/"} Git
             %li
-              %a{:href => "http://rack.rubyforge.org/"} rack
+              %a{:href => "http://rack.rubyforge.org/"} Rack
             %li
-              %a{:href => "http://www.ruby-lang.org/"} ruby
+              %a{:href => "http://www.ruby-lang.org/"} Ruby
             %li
-              %a{:href => "http://sass-lang.com/"} sass
+              %a{:href => "http://sass-lang.com/"} Sass
             %li
-              %a{:href => "http://haml-lang.com/"} haml
+              %a{:href => "http://haml-lang.com/"} Haml
             %li
-              %a{:href => "http://daringfireball.net/projects/markdown/"} markdown
+              %a{:href => "http://daringfireball.net/projects/markdown/"} Markdown
             %li
-              %a{:href => "http://pygments.org/"} pygments
+              %a{:href => "http://pygments.org/"} Pygments
+            %li
+              %a{:href => "http://jquery.com/"} jQuery
+
     / Disqus
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';

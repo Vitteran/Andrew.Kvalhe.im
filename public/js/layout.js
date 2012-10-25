@@ -1,28 +1,24 @@
-var length;
-var counter;
 $(document).ready(function() {
-	length = $('div#poweredby ul li').length;
-	counter = 1;
+	var max = $('div#poweredby ul li').length;
+	var counter = 1;
 
-	first = $('div#poweredby ul li:first');
-	first.css('top', '0em');
-	first.css('opacity', '1.0');
-	first.css('visibility', 'visible');
-
-	function rotate() {
-		current = $('div#poweredby ul li:nth-child(' + counter + ')');
-		current.animate({top: '-3.6em', opacity: '0.0'}, 500, function() {
-			current.css('top', '1.2em');
-			current.css('visibility', 'hidden');
+	setInterval(function() {
+		$('div#poweredby ul li:nth-child(' + counter + ')').animate({
+			opacity: '0.0',
+			top: '-3.6em'
+		}, function() {
+			$(this).css({
+				top: '1.2em'
+			});
 		});
 
-		next = $('div#poweredby ul li:nth-child(' + (counter == length ? 1 : counter + 1) + ')');
-		next.css('visibility', 'visible')
-		next.animate({top: '0em', opacity: '1.0'}, 500);
+		counter++; if (counter > max) {counter = 1;}
 
-		counter++;
-		if (counter > length) {counter = 1;}
-	}
-
-	interval = setInterval(rotate, 2000);
+		$('div#poweredby ul li:nth-child(' + counter + ')').css({
+			top: '1.2em'
+		}).animate({
+			opacity: '1.0',
+			top: 0
+		});
+	}, 2000);
 });
