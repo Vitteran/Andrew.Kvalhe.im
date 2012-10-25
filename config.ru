@@ -66,7 +66,7 @@ toto = Toto::Server.new do
   set :title, 'Andrew.Kvalhe.im'
   set :url, 'http://Andrew.Kvalhe.im/'
   set :date, lambda {|now| now.strftime("%F")}
-  set :disqus, 'andrewkvalheim'
+  set :disqus, 'kahve-toto'
   set :ext, 'md'
   if ENV['RACK_ENV'] == 'development'
     set :articles, '../content/articles'
