@@ -229,6 +229,7 @@ header {
     list-style-type: none;
 
     li {
+      margin-left: 0;
       margin-bottom: (11pt/2);
     }
   }
@@ -241,10 +242,6 @@ footer {
   position: relative;
   z-index: 1;
   box-shadow: 0 0 48pt rgba(0,0,0,0.50);
-
-  article {
-    margin-bottom: $gap;
-  }
 
   h1 {
     margin-bottom: (11pt/2);
