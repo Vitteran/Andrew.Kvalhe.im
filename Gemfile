@@ -4,6 +4,7 @@ gem "thin"
 gem "heroku"
 gem "haml"
 gem "sass", :require => "sass/plugin/rack"
+gem "rack-coffee", :require => "rack/coffee"
 gem "rack-codehighlighter", :require => "rack/codehighlighter"
 gem "rack-rewrite", :require => "rack/rewrite"
 

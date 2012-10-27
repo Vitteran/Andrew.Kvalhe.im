@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.require(:default)
 
 # Rack config
-use Rack::Static, :urls => ['/js', '/images', '/favicon.ico'], :root => 'public'
+use Rack::Static, :urls => ['/images', '/favicon.ico'], :root => 'public'
 use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
 use Rack::CommonLogger
 use Rack::Rewrite do
@@ -21,6 +21,13 @@ Sass::Plugin.options.merge!(
   :template_location => 'public/stylesheets',
   :css_location => 'tmp/stylesheets'
 )
+
+# CoffeeScript
+use Rack::Coffee,
+  :root => 'public',
+  :urls => '/scripts',
+  :cache_compile => true,
+  :cache_control => 7776000
 
 # Syntax highlighting
 use Rack::Codehighlighter, :pygments_api, :markdown => true, :element => "pre>code", :pattern => /\A:::(\w+)\s*(\n|&#x000A;)/i, :logging => true
