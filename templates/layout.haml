@@ -1,19 +1,20 @@
-!!!
+!!! 5
 %html
   %head
-    %title
+    %meta{'charset' => "utf-8"}
+    %title<
       = title
       = " - #{@config[:title]}" unless title.include? @config[:title]
-    %meta{'charset' => "utf-8"}
     %meta{'http-equiv' => "X-UA-Compatible", :content => "IE=9"}
     %base{:href => "http://Andrew.Kvalhe.im/"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/main.css"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu:300,500|Terminal+Dosis:200"}
     %link{:rel => "stylesheet", :type => "text/css", :href => "stylesheets/pygments-monokai.css"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => "#{title}", :href => "http://feeds.feedburner.com/AndrewKvalheim"}
+    %link{:rel => 'shortcut icon', :href => 'favicon.png'}
     %script{:type => "text/javascript", :src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"}
     %script{:type => "text/javascript", :src => "scripts/layout.js"}
-    / Google Analytics
+    -# Google Analytics
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-31751058-2']);
@@ -25,24 +26,24 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    / 960 Grid System
+    -# 960 Grid System
     .container_12
-      / Header
+      -# Header
       %header.grid_6.prefix_3.suffix_3.nocontent
         %map{:name => "kahve"}
           %area{:href => "/", :shape => "circle", :coords => [(6*80-20)/2, (6*80-20)/2, (6*80-20)/2].join(",")}
-        %img{:src => "/:kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "#kahve"}
+        %img{:src => "/:kahve_#{6*80-20}.jpg", :width => 6*80-20, :height => 6*80-20, :usemap => "#kahve", :alt => 'kahve'}
       .clear
 
-      / Content
+      -# Content
       .grid_10.prefix_1.suffix_1#content= yield
       .clear
 
-    / Footer
+    -# Footer
     %footer.nocontent
-      / 960 Grid System
+      -# 960 Grid System
       .container_12
-        / Left
+        -# Left
         %section.grid_5.prefix_1
           %h1 About
           %p This site is a medium through which I can publish information for wandering Googlers.
@@ -51,7 +52,7 @@
             You may
             %a{:href => "http://www.google.com/recaptcha/mailhide/d?k=01NVRNAGmgj2DT8efpSgibAg==&c=cKxJoMKUrU1gNAaxptkCIXh7yp9RyQGD2zAlfyPudzg="} email me.
 
-        / Right
+        -# Right
         %section.grid_5.suffix_1
           %h1 Search
           #cse-search-form{:style => "width: 100%;"} Loading
@@ -76,44 +77,34 @@
           %a{:href => "/archives"} all posts
         .clear
 
-        / Bottom text
+        -# Bottom text
         #poweredby.grid_10.prefix_1.suffix_1
-          Powered by&nbsp;
+          %a{:href => 'https://github.com/AndrewKvalheim/Andrew.Kvalhe.im'} Powered
+          by&nbsp;
           %ul
-            %li
-              %a{:href => "http://cloudhead.io/toto"} toto
-            %li
-              %a{:href => "http://www.heroku.com/"} Heroku
-            %li
-              %a{:href => "http://aws.amazon.com/s3/"} S3
-            %li
-              %a{:href => "http://git-scm.com/"} Git
-            %li
-              %a{:href => "http://rack.rubyforge.org/"} Rack
-            %li
-              %a{:href => "http://www.ruby-lang.org/"} Ruby
-            %li
-              %a{:href => "http://sass-lang.com/"} Sass
-            %li
-              %a{:href => "http://haml-lang.com/"} Haml
-            %li
-              %a{:href => "http://coffeescript.org/"} CoffeeScript
-            %li
-              %a{:href => "http://daringfireball.net/projects/markdown/"} Markdown
-            %li
-              %a{:href => "http://pygments.org/"} Pygments
-            %li
-              %a{:href => "http://jquery.com/"} jQuery
+            - {'toto'         => 'http://cloudhead.io/toto',
+               'Heroku'       => 'http://www.heroku.com/',
+               'S3'           => 'http://aws.amazon.com/s3/',
+               'Git'          => 'http://git-scm.com/',
+               'Rack'         => 'http://rack.rubyforge.org/',
+               'Ruby'         => 'http://www.ruby-lang.org/',
+               'Sass'         => 'http://sass-lang.com/',
+               'Haml'         => 'http://haml-lang.com/',
+               'CoffeeScript' => 'http://coffeescript.org/',
+               'Markdown'     => 'http://daringfireball.net/projects/markdown/',
+               'Pygments'     => 'http://pygments.org/',
+               'jQuery'       => 'http://jquery.com/'}.each do |name, url|
+              %li
+                %a{:href => url}= name
 
-
-    / Disqus
+    -# Disqus
     :javascript
       var disqus_shortname = '#{ @config[:disqus] }';
       #{ ENV['RACK_ENV'] == 'development' ? "var disqus_developer = 1;" : "" }
 
-      (function () {
+      $(function () {
         var s = document.createElement('script'); s.async = true;
         s.type = 'text/javascript';
         s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());
+      });

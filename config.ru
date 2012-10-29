@@ -2,7 +2,7 @@ require 'bundler'
 Bundler.require(:default)
 
 # Rack config
-use Rack::Static, :urls => ['/images', '/favicon.ico'], :root => 'public'
+use Rack::Static, :urls => ['/images', '/favicon.png'], :root => 'public'
 use Rack::Static, :urls => ['/stylesheets'], :root => 'tmp'
 use Rack::CommonLogger
 use Rack::Rewrite do
