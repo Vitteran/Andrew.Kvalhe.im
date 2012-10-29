@@ -40,8 +40,18 @@ end
 class Kramdown::Parser::CustomExtensions < Kramdown::Parser::Kramdown
    def initialize(source, options)
      super
+     @block_parsers.unshift(:coffeescript)
      @span_parsers.unshift(:instruction)
    end
+
+  def parse_coffeescript
+    @src.pos += @src.matched_size
+    if coffeescript = @src.scan_until(/<\/script>/)
+      javascript = CoffeeScript.compile(coffeescript)
+      @tree.children << Element.new(:raw, "<script type=\"text/javascript\">#{javascript}</script>")
+    end
+  end
+  define_parser(:coffeescript, /<script type="text\/coffeescript">/)
 
   def parse_instruction
     @src.pos += @src.matched_size
